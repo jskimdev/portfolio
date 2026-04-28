@@ -27,8 +27,9 @@
 
 		<div class="mt-14 grid gap-8">
 			{#each projects as project}
-				<article
-					class="grid gap-8 rounded-[2rem] border border-border bg-card p-8 lg:grid-cols-[1.15fr_0.85fr] lg:p-10"
+				<a
+					href={`/projects/${project.slug}`}
+					class="grid gap-8 rounded-[2rem] border border-border bg-card p-8 transition-colors hover:border-foreground/30 lg:grid-cols-[1.15fr_0.85fr] lg:p-10"
 				>
 					<div
 						class="flex min-h-[18rem] items-center justify-center rounded-[1.5rem] border border-dashed border-border bg-muted/40"
@@ -52,11 +53,11 @@
 							{/each}
 						</div>
 						<p class="mt-4 text-sm leading-7 text-muted-foreground">
-							Add a short case-study lead here: problem, direction, and what makes the project worth
-							highlighting.
+							{project.overview}
 						</p>
+						<p class="mt-5 text-sm font-medium text-foreground">View full project</p>
 					</div>
-				</article>
+				</a>
 			{/each}
 		</div>
 	</section>

@@ -79,9 +79,12 @@
 
             <div class="mt-10 grid gap-6 lg:grid-cols-3">
                 {#each selectedProjects as project}
-                    <article class="rounded-[1.75rem] border border-border bg-card p-6">
+                    <a
+                        href={`/projects/${project.slug}`}
+                        class="group block rounded-[1.75rem] border border-border bg-card p-6 transition-colors hover:border-foreground/30"
+                    >
                         <div class="flex min-h-52 items-center justify-center rounded-[1.25rem] border border-dashed border-border bg-muted/40">
-                            <span class="text-sm font-medium text-muted-foreground">
+                            <span class="text-sm font-medium text-muted-foreground transition-colors group-hover:text-foreground/80">
                                 Project preview
                             </span>
                         </div>
@@ -94,7 +97,10 @@
                                 </span>
                             {/each}
                         </div>
-                    </article>
+                        <p class="mt-5 text-sm font-medium text-foreground">
+                            View full project
+                        </p>
+                    </a>
                 {/each}
             </div>
         </div>

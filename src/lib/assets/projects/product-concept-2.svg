@@ -1,0 +1,10 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1500" rx="54" fill="#F7F9FC"/>
+  <rect x="102" y="96" width="996" height="1308" rx="40" fill="#FFFFFF" stroke="#D8DFEA" stroke-width="8"/>
+  <rect x="170" y="164" width="232" height="22" rx="11" fill="#2563EB"/>
+  <rect x="170" y="230" width="680" height="90" rx="22" fill="#101828"/>
+  <rect x="170" y="364" width="860" height="320" rx="26" fill="#EAF0F9"/>
+  <rect x="170" y="736" width="860" height="30" rx="15" fill="#64748B"/>
+  <rect x="170" y="786" width="712" height="30" rx="15" fill="#A5B4C8"/>
+  <rect x="170" y="888" width="860" height="420" rx="26" fill="#F2F5FA"/>
+</svg>
