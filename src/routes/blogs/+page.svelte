@@ -25,7 +25,10 @@
 
 		<div class="mt-14 divide-y divide-border rounded-[2rem] border border-border bg-card">
 			{#each blogPosts as post}
-				<article class="grid gap-4 px-6 py-8 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-start">
+				<a
+					href={`/blogs/${post.slug}`}
+					class="grid gap-4 px-6 py-8 transition-colors hover:bg-muted/20 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-start"
+				>
 					<div>
 						<div class="flex flex-wrap items-center gap-3">
 							<p class="text-xs font-semibold tracking-[0.25em] text-muted-foreground uppercase">
@@ -42,7 +45,7 @@
 						<p class="mt-3 max-w-3xl text-sm leading-7 text-foreground/80">{post.description}</p>
 					</div>
 					<div class="text-sm font-medium text-foreground/60">Read article</div>
-				</article>
+				</a>
 			{/each}
 		</div>
 	</section>

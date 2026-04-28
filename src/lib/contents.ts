@@ -74,7 +74,8 @@ export const projects: Project[] = [
 				src: portfolioRefresh1,
 				alt: 'Desktop layout for the Portfolio Refresh homepage case study.',
 				label: 'Homepage system',
-				caption: 'A wide composition showing the homepage rhythm, type scale, and featured-work structure.',
+				caption:
+					'A wide composition showing the homepage rhythm, type scale, and featured-work structure.',
 				width: 1600,
 				height: 1000
 			},
@@ -82,7 +83,8 @@ export const projects: Project[] = [
 				src: portfolioRefresh2,
 				alt: 'Portrait layout for the Portfolio Refresh project detail page.',
 				label: 'Case-study page',
-				caption: 'A taller layout meant for process notes, longer storytelling, and stacked content modules.',
+				caption:
+					'A taller layout meant for process notes, longer storytelling, and stacked content modules.',
 				width: 1080,
 				height: 1350
 			},
@@ -90,7 +92,8 @@ export const projects: Project[] = [
 				src: portfolioRefresh3,
 				alt: 'Wide supporting visual for the Portfolio Refresh content sections.',
 				label: 'Supporting sections',
-				caption: 'A landscape frame for secondary sections that sit between the intro and outcomes.',
+				caption:
+					'A landscape frame for secondary sections that sit between the intro and outcomes.',
 				width: 1400,
 				height: 820
 			}
@@ -141,7 +144,8 @@ export const projects: Project[] = [
 				src: productConcept1,
 				alt: 'Primary desktop hero for the Product Concept landing page.',
 				label: 'Landing page hero',
-				caption: 'The main desktop view focuses on hierarchy, value messaging, and one dominant action.',
+				caption:
+					'The main desktop view focuses on hierarchy, value messaging, and one dominant action.',
 				width: 1600,
 				height: 1000
 			},
@@ -149,7 +153,8 @@ export const projects: Project[] = [
 				src: productConcept2,
 				alt: 'Tall mobile-first composition for the Product Concept page.',
 				label: 'Mobile narrative',
-				caption: 'A vertical sequence that tests how the product story reads when content stacks tightly.',
+				caption:
+					'A vertical sequence that tests how the product story reads when content stacks tightly.',
 				width: 1200,
 				height: 1500
 			},
@@ -157,7 +162,8 @@ export const projects: Project[] = [
 				src: productConcept3,
 				alt: 'Supporting visual for the Product Concept feature modules.',
 				label: 'Feature breakdown',
-				caption: 'A wider frame for product proof, supporting features, and lower-page conversion sections.',
+				caption:
+					'A wider frame for product proof, supporting features, and lower-page conversion sections.',
 				width: 1440,
 				height: 900
 			}
@@ -216,7 +222,8 @@ export const projects: Project[] = [
 				src: brandMicrosite2,
 				alt: 'Portrait editorial layout for the Brand Microsite.',
 				label: 'Editorial mobile flow',
-				caption: 'A taller format that shows how service, identity, and updates can live in one scroll.',
+				caption:
+					'A taller format that shows how service, identity, and updates can live in one scroll.',
 				width: 1100,
 				height: 1400
 			},
@@ -224,7 +231,8 @@ export const projects: Project[] = [
 				src: brandMicrosite3,
 				alt: 'Wide supporting image for the Brand Microsite content modules.',
 				label: 'Content modules',
-				caption: 'A landscape frame for service modules, update blocks, and secondary editorial sections.',
+				caption:
+					'A landscape frame for service modules, update blocks, and secondary editorial sections.',
 				width: 1440,
 				height: 840
 			}
@@ -259,29 +267,124 @@ export function getProjectBySlug(slug: string) {
 	return projects.find((project) => project.slug === slug);
 }
 
-export const blogPosts = [
+export type BlogPostType = 'Project-related' | 'General';
+
+export type BlogParagraphBlock = {
+	type: 'paragraph';
+	content: string;
+};
+
+export type BlogImageBlock = {
+	type: 'image';
+	src: string;
+	alt: string;
+	caption: string;
+	width: number;
+	height: number;
+};
+
+export type BlogContentBlock = BlogParagraphBlock | BlogImageBlock;
+
+export type BlogPost = {
+	slug: string;
+	title: string;
+	type: BlogPostType;
+	description: string;
+	content: BlogContentBlock[];
+	relatedProjects: string[];
+	selected: boolean;
+	publishedOn: string;
+	readTime: string;
+};
+
+export const blogPosts: BlogPost[] = [
 	{
+		slug: 'case-study-notes-from-a-recent-project',
 		title: 'Case study notes from a recent project',
 		type: 'Project-related',
 		description:
 			'Use posts like this to expand on a specific project, explain decisions, and show process that does not fit on the main project page.',
+		content: [
+			{
+				type: 'paragraph',
+				content:
+					'This post can open with a short framing paragraph that explains the project context, the decision being documented, and why the detail matters beyond the main case study page.'
+			},
+			{
+				type: 'image',
+				src: portfolioRefresh2,
+				alt: 'A tall case-study layout used to support writing about the Portfolio Refresh project.',
+				caption: 'A supporting visual placed between sections of the article.',
+				width: 1080,
+				height: 1350
+			},
+			{
+				type: 'paragraph',
+				content:
+					'After the image, the post can continue with process notes, tradeoffs, and what changed after testing or iteration. This keeps the writing flow editorial instead of forcing all images to the top or bottom.'
+			}
+		],
 		relatedProjects: ['Portfolio Refresh'],
-		selected: true
+		selected: true,
+		publishedOn: 'April 12, 2026',
+		readTime: '6 min read'
 	},
 	{
+		slug: 'designing-with-restraint',
 		title: 'Designing with restraint',
 		type: 'General',
 		description:
 			'This kind of article can capture broader thoughts on interface design, structure, or visual systems beyond one client engagement.',
+		content: [
+			{
+				type: 'paragraph',
+				content:
+					'Some posts may stay text-heavy and never use inline imagery. The content model still supports that cleanly by allowing paragraphs only.'
+			},
+			{
+				type: 'paragraph',
+				content:
+					'That flexibility matters because not every article needs a visual break, while others may benefit from one or two supporting frames placed exactly where they help the narrative.'
+			}
+		],
 		relatedProjects: [],
-		selected: true
+		selected: true,
+		publishedOn: 'March 29, 2026',
+		readTime: '4 min read'
 	},
 	{
+		slug: 'what-i-learned-while-refining-a-landing-page',
 		title: 'What I learned while refining a landing page',
 		type: 'Project-related',
 		description:
 			'A practical way to connect your writing back to portfolio work while still making the post useful on its own.',
+		content: [
+			{
+				type: 'paragraph',
+				content:
+					'This article could walk through one refinement at a time, using each section to explain what changed in the landing page and what insight came from the adjustment.'
+			},
+			{
+				type: 'image',
+				src: productConcept1,
+				alt: 'Desktop landing page concept used as a supporting image inside a blog article.',
+				caption: 'An inline screenshot that sits between two explanatory paragraphs.',
+				width: 1600,
+				height: 1000
+			},
+			{
+				type: 'paragraph',
+				content:
+					'With the image placed mid-article, the post can point to a specific section of the page and then move back into analysis without breaking the reading rhythm.'
+			}
+		],
 		relatedProjects: ['Product Concept'],
-		selected: true
+		selected: true,
+		publishedOn: 'February 18, 2026',
+		readTime: '5 min read'
 	}
-] as const;
+];
+
+export function getBlogPostBySlug(slug: string) {
+	return blogPosts.find((post) => post.slug === slug);
+}

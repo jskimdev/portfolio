@@ -1,10 +1,11 @@
-import { projects } from '$lib/contents';
+import { blogPosts, projects } from '$lib/contents';
 
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = () => {
 	return {
-		projects
+		projects,
+		blogPosts
 	};
 };
 
